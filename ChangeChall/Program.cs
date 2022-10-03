@@ -1,3 +1,4 @@
+﻿
 using ChangeChall;
 
 
@@ -9,6 +10,22 @@ denominations.Add(new DenominationInfo { Name = "Nickel", Amount = 0.05M });
 denominations.Add(new DenominationInfo { Name = "Quarter", Amount = 0.25M });
 denominations.Add(new DenominationInfo { Name = "Dime", Amount = 0.10M });
 denominations.Add(new DenominationInfo { Name = "Penny", Amount = 0.01M });
+
+
+
+Console.Write("Amount owed: ");
+decimal amountOwed = decimal.Parse(Console.ReadLine());
+
+Console.Write("Amount paid: ");
+decimal amountPaid = decimal.Parse(Console.ReadLine());
+
+
+List<string> result = CalculateChange(amountOwed, amountPaid, denominations);
+
+foreach(string item in result)
+{
+    Console.WriteLine(item);
+}
 
 static List<string> CalculateChange(decimal amountOwed, decimal amountPaid, List<DenominationInfo> denominations)
 {
@@ -52,3 +69,4 @@ static (decimal remainder, int numberOfItems) CalculateSpecificChange(decimal am
 
     return output;
 }
+
